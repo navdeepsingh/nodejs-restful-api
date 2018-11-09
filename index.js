@@ -4,16 +4,19 @@
 const http =  require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const config = require('./lib/config');
+const handlers =  require('./lib/handlers');
+const _data = require('./lib/data');
 
 // Create http server
 const server = http.createServer((req, res) => {
-   
+
   // Parse the url
   const parsedUrl  = url.parse(req.url, true);
 
   // Get query string object
   const queryStringObject = parsedUrl.query;
-  
+
   // Get the path
   const path = parsedUrl.pathname;
   const trimmedPath = path.replace(/^\/+|\/$/g, '');
@@ -43,9 +46,9 @@ const server = http.createServer((req, res) => {
     }
 
     // Choose Handler
-    const chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;    
+    const chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
-    chosenHandler((statusCode, payload) => {
+    chosenHandler(data, (statusCode, payload) => {
       statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
       payload = typeof(payload) == 'object' ? payload : {};
 
@@ -62,28 +65,17 @@ const server = http.createServer((req, res) => {
 
   })
 
-}); 
-
-// Listen to port
-server.listen(3000, () => {
-  console.log('Server is listening up at port 3000');  
 });
 
-// Define Hanlders
-const handlers = {};
+// Listen to port
+server.listen(config.port, () => {
+  console.log(`Server is listening up at port ${config.port} and running ${config.envName}`);
+});
 
-// Define Hello Handler
-handlers.hello = (callback) => {
-  callback(null, {'message' : '########Welcome to NodeJS Shakalaka Boom Boom########'})
-}
-
-// Define NotFound Handler
-handlers.notFound = (callback) => {
-  callback(404);
-}
 
 // Define Router
 const router = {
-  'hello' : handlers.hello
+  'hello' : handlers.hello,
+  'ping' : handlers.ping,
+  'users' : handlers.users
 };
-
