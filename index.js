@@ -7,6 +7,7 @@ const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./lib/config');
 const handlers =  require('./lib/handlers');
 const _data = require('./lib/data');
+const helpers = require('./lib/helpers');
 
 // Create http server
 const server = http.createServer((req, res) => {
@@ -42,7 +43,7 @@ const server = http.createServer((req, res) => {
       'queryStringObject': queryStringObject,
       'method': method,
       'headers': headers,
-      'payload': buffer
+      'payload': helpers.parseJsonToObject(buffer)
     }
 
     // Choose Handler
