@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
   const trimmedPath = path.replace(/^\/+|\/$/g, '');
 
   // Get method
-  const method = req.method;
+  const method = req.method.toLowerCase();
 
   // Get Headers
   const headers = req.headers;
