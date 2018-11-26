@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
       });
       res.end(payloadString);
 
-      console.log('Returning the response: ', statusCode, payload);
+      console.log('Returning the response: ', statusCode, payload, method, queryStringObject);
     });
 
 
@@ -78,6 +78,7 @@ server.listen(config.port, () => {
 const router = {
   'hello' : handlers.hello,
   'ping' : handlers.ping,
+  'test': handlers.test,
   'users' : handlers.users,
   'tokens' : handlers.tokens,
   'checks' : handlers.checks
