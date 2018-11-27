@@ -9,6 +9,10 @@ const handlers =  require('./lib/handlers');
 const _data = require('./lib/data');
 const helpers = require('./lib/helpers');
 
+helpers.sendTwilioSms('9872604132', 'hello!', (err)=> {
+  console.log(err);  
+});
+
 // Create http server
 const server = http.createServer((req, res) => {
 
