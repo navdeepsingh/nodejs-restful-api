@@ -1,1 +1,1 @@
-{"id":"O3ZW0E0Ql0MJjVOwZ1fr","userPhone":"9872604132","protocol":"http://","url":"google.com","method":"post","successCodes":[200,201],"timeoutSeconds":5}
+{"id":"O3ZW0E0Ql0MJjVOwZ1fr","userPhone":"9872604132","protocol":"http","url":"google.com","method":"post","successCodes":[200,201],"timeoutSeconds":5}
