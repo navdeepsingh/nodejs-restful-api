@@ -1,0 +1,455 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Monitoring API Endpoints",
+		"_postman_id": "d2cb9180-0860-9bce-7bbb-d035f2682f84",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Create New User Request",
+					"request": {
+						"url": "http://localhost:3000/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\" : \"First Name\",\n\t\"lastName\" : \"Last Name\",\n\t\"phone\" : \"1234567890\",\n\t\"password\" : \"123456\",\n\t\"tosAgreement\" : true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Request",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/users?phone=1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "1234567890",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Request",
+					"request": {
+						"url": "http://localhost:3000/users",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\" : \"First Name\",\n\t\"lastName\" : \"Last Name\",\n\t\"phone\" : \"1234567890\",\n\t\"password\" : \"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Request",
+					"request": {
+						"url": {
+							"raw": "http://locahost:3000/users?phone=1234567890",
+							"protocol": "http",
+							"host": [
+								"locahost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "1234567890",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "token",
+									"value": "",
+									"equals": false,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"description": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tokens",
+			"description": "",
+			"item": [
+				{
+					"name": "Create New Token Request",
+					"request": {
+						"url": "http://localhost:3000/tokens",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"phone\" : \"1234567890\",\n\t\"password\" : \"123456\"\n}"
+						},
+						"description": "Required data: phone and password"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token Request",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/tokens?id=xxxxxxxx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "xxxxxxxx",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Required data: id"
+					},
+					"response": []
+				},
+				{
+					"name": "Extend Token Request",
+					"request": {
+						"url": "http://localhost:3000/tokens",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : \"xxxxxxxxxx\",\n\t\"extend\" : true\n}"
+						},
+						"description": "Required data: id, extend"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Token Request",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/tokens?id=Tcx2k1yC2QAQBZ7ccNyi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "Tcx2k1yC2QAQBZ7ccNyi",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "token",
+									"value": "",
+									"equals": false,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checks",
+			"description": "",
+			"item": [
+				{
+					"name": "Create New Check Request",
+					"request": {
+						"url": "http://localhost:3000/checks",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "token",
+								"value": "JsKrcNLTJzYjNYIAwoDo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"protocol\" : \"http\",\n\t\"url\" : \"google.com\",\n\t\"method\": \"post\",\n\t\"successCodes\" : [200, 201],\n\t\"timeoutSeconds\" : 5\n}"
+						},
+						"description": "Required data: protocol, url, method, successCodes, timeoutSeconds"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Check Request",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/checks?id=xxxxxxxx&token=yyyyyyy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "xxxxxxxx",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "token",
+									"value": "yyyyyyy",
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Required data: id"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Check Request",
+					"request": {
+						"url": "http://localhost:3000/checks",
+						"method": "PUT",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": "Tcx2k1yC2QAQBZ7ccNyi"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"40xU4pvFFzkENgaJzrWA\",\n\t\"protocol\" : \"https://\",\n\t\"url\" : \"google.com\",\n\t\"method\": \"get\",\n\t\"successCodes\" : [200, 201],\n\t\"timeoutSeconds\" : 3\n}"
+						},
+						"description": "Required data: id,\nOptional data: protocol, url, method, successCodes, timeoutSeconds"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Check Request",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/checks?id=8QXpEBA8kI87SZKlo2Vi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checks"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8QXpEBA8kI87SZKlo2Vi",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"description": "",
+								"key": "token",
+								"type": "text",
+								"value": "JsKrcNLTJzYjNYIAwoDo"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
